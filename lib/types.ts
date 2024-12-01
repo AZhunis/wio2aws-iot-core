@@ -19,3 +19,8 @@ export interface TemperatureStats {
   min: number;
   max: number;
 }
+
+export interface SensorResponse {
+  statusCode: number;
+  body: string;
+}
