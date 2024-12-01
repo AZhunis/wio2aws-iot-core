@@ -48,7 +48,7 @@ export function DebugConsole() {
             </Button>
           </div>
         </div>
-        
+
         {isExpanded && (
           <ScrollArea className="h-[calc(24rem-2.5rem)] p-4">
             <div className="space-y-2">
@@ -86,7 +86,7 @@ function LogEntry({ log }: { log: DebugLog }) {
         <span className={getLogColor(log.type)}>[{log.type.toUpperCase()}]</span>
         <span>{log.message}</span>
       </div>
-      {log.details && (
+      {log.details && typeof log.details === 'object' && (
         <pre className="mt-1 text-xs bg-muted/50 p-2 rounded overflow-x-auto">
           {JSON.stringify(log.details, null, 2)}
         </pre>

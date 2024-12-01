@@ -7,14 +7,14 @@ export interface DebugLog {
   timestamp: number;
   type: 'info' | 'error' | 'warning' | 'api';
   message: string;
-  details?: unknown;
+  details?: Record<string, any> | null;
 }
 
 interface DebugState {
   logs: DebugLog[];
 }
 
-type DebugAction = 
+type DebugAction =
   | { type: 'ADD_LOG'; payload: DebugLog }
   | { type: 'CLEAR_LOGS' };
 
