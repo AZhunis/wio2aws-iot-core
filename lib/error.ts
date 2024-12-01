@@ -19,9 +19,12 @@ export const handleAxiosError = (error: unknown): APIError => {
   if (error instanceof APIError) {
     return error;
   }
-  
+
   if (isAxiosError(error)) {
     const status = error.response?.status;
+    if (!status) {
+      return new APIError('Network error occurred');
+    }
     if (status === 404) {
       return new APIError('Resource not found', status);
     }
@@ -36,7 +39,7 @@ export const handleAxiosError = (error: unknown): APIError => {
     }
     return new APIError('Network error occurred', status);
   }
-  
+
   return new APIError('An unexpected error occurred');
 };
 
