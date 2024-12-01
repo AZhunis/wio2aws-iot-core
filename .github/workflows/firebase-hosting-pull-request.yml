@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Adjust based on your project requirements
+          node-version: '18' # Updated to match merge workflow
 
       - name: Install dependencies
         run: npm install
